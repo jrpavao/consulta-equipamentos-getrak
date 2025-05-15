@@ -1,9 +1,13 @@
+import os
+from dotenv import load_dotenv
 import requests
+
+load_dotenv()
 
 def get_token():
     url = "https://api.getrak.com/newkoauth/oauth/token"
     headers = {
-        "Authorization": "Basic ZXJwYXN0cmFuc2F0XzY5OlhLNnNzSC90Y1FuJDVQWUs=",
+        "Authorization": os.getenv("GETRAK_BASIC_AUTH"),
         "Content-Type": "application/x-www-form-urlencoded"
     }
     data = {"grant_type": "client_credentials"}
